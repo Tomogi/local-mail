@@ -4,6 +4,7 @@ import os
 from email.header import decode_header
 from datetime import datetime
 from typing import Dict, List, Optional
+from dotenv import load_dotenv
 
 class MailFetcher:
     def __init__(self, email_addr: str, password: str, imap_server: str = "imap.gmail.com"):
@@ -90,6 +91,8 @@ class MailFetcher:
 
 # Example usage
 if __name__ == "__main__":
+    load_dotenv()  # Add this line to load .env file
+    
     # For Gmail, you need to create an App Password if 2FA is enabled
     # Go to Google Account > Security > 2-Step Verification > App passwords
     EMAIL = os.getenv("EMAIL")
